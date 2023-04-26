@@ -1,0 +1,4 @@
+fastapi==0.95.1
+lagom==2.4.1
+pydantic==1.10.7
+starlette==0.26.1
