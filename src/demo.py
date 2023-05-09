@@ -17,6 +17,7 @@ class Error(BaseModel):
     code: int
 
 
+# https://fastapi.tiangolo.com/advanced/additional-responses/ 참고
 @router.get('/demo', response_model=Result, responses={400: {"model": Error}})
 def demo(name: str, repo: Repo = deps.depends(Repo)):
     repo.show()
