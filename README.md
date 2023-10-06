@@ -8,3 +8,8 @@ uvicorn main:app --host 0.0.0.0 --port 8080 --reload
 ```shell
 pipreqs --encoding=utf-8 --force src 
 ```
+
+## 테스트  
+```shell
+http://localhost:8080/api/v1/demo?name=windbird123
+```
