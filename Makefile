@@ -22,7 +22,7 @@ run.prod:
 
 .PHONY: run  # run the application in a dev mode
 run:
-	uvicorn main:app --host="localhost" --port=8080
+	uvicorn main:app --host="0.0.0.0" --port=8080 --reload
 
 
 # *************************************************
