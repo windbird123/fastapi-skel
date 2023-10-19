@@ -11,7 +11,7 @@ def startup():
 
 
 def shutdown_handler():
-    print('server is shutdown')
+    print("server is shutdown")
 
 
 def create_app():

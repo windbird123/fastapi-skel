@@ -6,7 +6,7 @@ from starlette.responses import JSONResponse
 from src.modules import deps
 from src.repo import Repo
 
-router = APIRouter(prefix='/api/v1')
+router = APIRouter(prefix="/api/v1")
 
 
 class Result(BaseModel):
@@ -18,10 +18,10 @@ class Error(BaseModel):
 
 
 # https://fastapi.tiangolo.com/advanced/additional-responses/ 참고
-@router.get('/demo', response_model=Result, responses={400: {"model": Error}})
+@router.get("/demo", response_model=Result, responses={400: {"model": Error}})
 def demo(name: str, repo: Repo = deps.depends(Repo)):
     repo.show()
-    if name == 'error':
+    if name == "error":
         error = Error(code=400)
         return JSONResponse(content=jsonable_encoder(error), status_code=400)
-    return Result(message=f'hello {name}')
+    return Result(message=f"hello {name}")

@@ -1,3 +1,8 @@
+## 환경 설정
+* python version: 3.10.x
+* 
+
+
 ## 실행
 
 ```shell
