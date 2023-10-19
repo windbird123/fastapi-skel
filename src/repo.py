@@ -4,7 +4,7 @@ class Repo:
         self.port = port
 
     def show(self):
-        print(f"{self.host=} {self.port=}")
+        print(f"repo test: {self.host=} {self.port=}")
 
     def hello(self):
         print(f"hello ${self.host}")

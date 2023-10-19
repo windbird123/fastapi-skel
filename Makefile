@@ -7,22 +7,22 @@ install.prod:
 	pip install -r requirements.txt
 
 
-install: install.prod  # install packages for dev
-	pip install -r requirements-dev.txt
+install: install.prod  # install packages for local develop
+	pip install -r requirements-local.txt
 
 
 # ************************************************
 # application
 # ************************************************
 
-.PHONY: run.prod  # run the application in a prod mode
-run.prod:
-	uvicorn main:app --host="0.0.0.0" --port=8080
-
-
 .PHONY: run  # run the application in a dev mode
 run:
 	uvicorn main:app --host="0.0.0.0" --port=8080 --reload
+
+
+.PHONY: deploy.prod  # deploy application to production
+deploy.prod:
+	echo "deploy using .env file"
 
 
 # *************************************************
