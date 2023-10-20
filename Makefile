@@ -57,10 +57,3 @@ check:
 test:
 	python -m pytest -vvv -x ./src/tests
 
-.PHONY: test.unit  # run unit tests
-test.unit:
-	python -m pytest -vvv -x ./src/tests/unit
-
-.PHONY: test.integration  # run integration tests
-test.integration:
-	python -m pytest -vvv -x ./src/tests/integration

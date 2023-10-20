@@ -22,7 +22,7 @@ class LoggingSettings(BaseModel):
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_nested_delimiter="__", env_file=".env", extra="ignore"
+        env_nested_delimiter="__", env_file=".env", extra="ignore", case_sensitive=False
     )
 
     root_dir: Path
@@ -32,6 +32,8 @@ class Settings(BaseSettings):
     logging: LoggingSettings = LoggingSettings()
 
 
+# NOTE: We would like to hard-code the root and applications directories
+#       to avoid overriding via environment variables
 settings = Settings(
     root_dir=ROOT_PATH,
     src_dir=ROOT_PATH / "src",
