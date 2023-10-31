@@ -1,10 +1,11 @@
 import uvicorn
+from fastapi import FastAPI
 from loguru import logger
 
 from src.api import create_app
 from src.config import settings
 
-app = create_app()
+app: FastAPI = create_app()
 
 if __name__ == "__main__":
     logger.info(settings.logging.model_dump_json())

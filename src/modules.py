@@ -1,9 +1,9 @@
 from lagom import Container
 from lagom.integrations.fast_api import FastApiIntegration
 
-from src.repo import Repo
+from src.repo import ProdRepo, Repo
 
 container = Container()
-container[Repo] = Repo(host="localhost", port=12345)
+container[Repo] = ProdRepo(host="localhost", port=12345)
 
 deps = FastApiIntegration(container)

@@ -1,10 +1,18 @@
-class Repo:
+from abc import ABC
+
+from loguru import logger
+
+
+class Repo(ABC):
+    def server_id(self) -> str:
+        pass
+
+
+class ProdRepo(Repo):
     def __init__(self, host: str, port: int) -> None:
         self.host = host
         self.port = port
 
-    def show(self):
-        print(f"repo test: {self.host=} {self.port=}")
-
-    def hello(self):
-        print(f"hello ${self.host}")
+    def server_id(self) -> str:
+        logger.info(f"server {self.host}:{self.port}")
+        return "prod_server"

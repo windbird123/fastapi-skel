@@ -1,9 +1,11 @@
 from pathlib import Path
 
+from loguru import logger
 from pydantic import BaseModel
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 ROOT_PATH = Path(__file__).parent.parent.parent
+logger.info(f"{ROOT_PATH=}")
 
 
 class DatabaseSettings(BaseModel):

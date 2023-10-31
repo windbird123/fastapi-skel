@@ -30,7 +30,7 @@ deploy.prod:
 # *************************************************
 
 .PHONY: format  # fix formatting / and order imports
-format:
+fmt:
 	python -m black .
 	python -m isort .
 
