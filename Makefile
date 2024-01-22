@@ -17,7 +17,7 @@ install: install.prod  # install packages for local develop
 
 .PHONY: run  # run the application in a dev mode
 run:
-	uvicorn main:app --host="0.0.0.0" --port=8080 --reload
+	uvicorn src.main:app --host="0.0.0.0" --port=8080 --reload
 
 
 .PHONY: deploy.prod  # deploy application to production
