@@ -31,22 +31,17 @@ deploy.prod:
 
 .PHONY: lint  # fix formatting / and order imports
 lint:
-	python -m black .
 	python -m isort .
-
-
-.PHONY: type  # check type annotations
-type:
-	python -m mypy --check-untyped-defs .
+	python -m black .
+	python -m ruff --fix .
 
 
 .PHONY: check  # check everything
-check:
-	python -m ruff .
-	python -m black --check .
+check: lint
+	python -m ruff check .
 	python -m isort --check .
+	python -m black --check .
 	python -m mypy --check-untyped-defs .
-	python -m pytest .
 
 
 # *************************************************
@@ -56,4 +51,3 @@ check:
 .PHONY: test  # run all tests
 test:
 	python -m pytest -vvv -x ./src/tests
-

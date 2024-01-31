@@ -5,7 +5,7 @@ from loguru import logger
 
 class Repo(ABC):
     def server_id(self) -> str:
-        pass
+        raise NotImplementedError
 
 
 class ProdRepo(Repo):
