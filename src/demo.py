@@ -1,4 +1,3 @@
-from fastapi.encoders import jsonable_encoder
 from fastapi import APIRouter, Request
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel

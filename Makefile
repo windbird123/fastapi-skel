@@ -29,8 +29,8 @@ deploy.prod:
 # code quality
 # *************************************************
 
-.PHONY: fmt  # fix formatting / and order imports
-fmt:
+.PHONY: lint  # fix formatting / and order imports
+lint:
 	python -m black .
 	python -m isort .
 

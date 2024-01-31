@@ -7,16 +7,19 @@ from src.config import settings
 
 app: FastAPI = create_app()
 
-if __name__ == "__main__":
-    logger.add("file_{time}.log",
-        encoding="utf-8",
-               rotation="18:45", 
-               format="{time:YYYY-MM-DD at HH:mm:ss} {level} {message}", 
-               level="INFO", 
-               retention="40 days", 
-               compression="zip",
-               watch=True)
+# setup logger
+logger.add(
+    "logs/application.log",
+    encoding="utf-8",
+    rotation="00:00",
+    format="{time:YYYY-MM-DD HH:mm:ss.SSS}\t{level}\t{message}",
+    level="INFO",
+    retention="40 days",
+    compression="zip",
+    watch=True,
+)
 
+if __name__ == "__main__":
     logger.info(settings.logging.model_dump_json())
     logger.info(settings.database.model_dump_json())
 
