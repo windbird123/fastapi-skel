@@ -22,7 +22,7 @@ class Error(BaseModel):
 # https://fastapi.tiangolo.com/advanced/additional-responses/ 참고
 # limiter.limit 사용을 위해서는 request param 이 필요함
 @router.get("/demo", response_model=Result, responses={400: {"model": Error}})
-@limiter.limit("2/minute")
+@limiter.limit("5/minute")
 async def demo(request: Request, name: str, repo: Repo = deps.depends(Repo)):
     if name == "error":
         error = Error(code=400)
