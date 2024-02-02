@@ -41,7 +41,7 @@ check: lint
 	python -m ruff check .
 	python -m isort --check .
 	python -m black --check .
-	python -m mypy --check-untyped-defs .
+	python -m mypy --check-untyped-defs src
 
 
 # *************************************************
