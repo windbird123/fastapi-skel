@@ -32,15 +32,16 @@ deploy.prod:
 .PHONY: lint  # fix formatting / and order imports
 lint:
 	python -m isort .
-	python -m black .
+	python -m black --line-length=120 .
 	python -m ruff --fix .
+
+	python -m ruff check .
+	python -m isort --check .
+	python -m black --check --line-length=120 .
 
 
 .PHONY: check  # check everything
-check: lint
-	python -m ruff check .
-	python -m isort --check .
-	python -m black --check .
+check:
 	python -m mypy --check-untyped-defs src
 
 
@@ -51,3 +52,8 @@ check: lint
 .PHONY: test  # run all tests
 test:
 	python -m pytest -vvv -x ./src/tests
+
+
+.PHONY: all
+all: lint check test
+	echo "run all tasks"

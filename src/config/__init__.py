@@ -23,9 +23,7 @@ class LoggingSettings(BaseModel):
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(
-        env_nested_delimiter="__", env_file=".env", extra="ignore", case_sensitive=False
-    )
+    model_config = SettingsConfigDict(env_nested_delimiter="__", env_file=".env", extra="ignore", case_sensitive=False)
 
     root_dir: Path
     src_dir: Path
