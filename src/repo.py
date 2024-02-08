@@ -1,9 +1,10 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 from loguru import logger
 
 
 class Repo(ABC):
+    @abstractmethod
     def server_id(self) -> str:
         raise NotImplementedError
 
